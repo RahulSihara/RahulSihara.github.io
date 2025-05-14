@@ -2,87 +2,167 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rahul Sihara | Portfolio</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0d1117;
-      color: #c9d1d9;
+      background-color: #121212;
+      color: #f1f1f1;
     }
+
     header, footer {
       text-align: center;
       padding: 2rem 1rem;
-      background-color: #161b22;
+      background-color: #1e1e1e;
     }
+
     nav a {
-      color: #58a6ff;
+      color: #1e90ff;
       margin: 0 1rem;
       text-decoration: none;
-      font-weight: bold;
     }
+
     nav a:hover {
       text-decoration: underline;
+      color: #63b3ed;
     }
+
     .container {
-      max-width: 1100px;
+      max-width: 900px;
       margin: auto;
       padding: 2rem;
     }
+
     .intro {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: wrap;
-      background-color: #1e2732;
-      padding: 2rem;
-      border-radius: 12px;
-    }
-    .intro img {
-      width: 250px;
-      border-radius: 16px;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-    }
-    h2 {
-      color: #f0f6fc;
-      border-bottom: 1px solid #30363d;
-      padding-bottom: 0.5rem;
-      margin-top: 2rem;
-    }
-    .projects {
-      display: grid;
       gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      margin-top: 2rem;
     }
-    .project {
-      background: #161b22;
-      padding: 1.5rem;
+
+    .intro img {
+      width: 100%;
+      max-width: 240px;
+      height: auto;
+      object-fit: contain;
       border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
-      transition: transform 0.2s;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      margin-top: 4rem;
     }
-    .project:hover {
-      transform: translateY(-4px);
+
+    .intro div {
+      flex-grow: 1;
+      text-align: left;
     }
-    .project h3 {
-      margin-top: 0;
-      color: #58a6ff;
+
+    @media (min-width: 768px) {
+      .intro {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+      }
     }
-    .project a {
-      color: #58a6ff;
-      text-decoration: none;
+
+    .projects-group {
+      margin-top: 2rem;
+      position: relative;
+      padding-left: 40px;
     }
-    .project a:hover {
+
+    .projects-group::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 15px;
+      width: 2px;
+      background-color: #333;
+    }
+
+    .accordion {
+      position: relative;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      background: #1e1e1e;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+      padding-left: 30px;
+    }
+
+    .accordion::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: -25px;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      background: linear-gradient(135deg, #ff6b6b, #f8c471, #48c9b0, #5dade2);
+      border-radius: 50%;
+      border: 2px solid #1e1e1e;
+      box-shadow: 0 0 0 2px #333;
+      z-index: 1;
+    }
+
+  .accordion-header {
+      padding: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      background-color: #2a2a2a;
+      color: #1e90ff;
+      border-bottom: 1px solid #333;
+      transition: background-color 0.3s;
+    }
+
+    .accordion-header:hover {
+      background-color: #3a3a3a;
+      color: #63b3ed;
+    }
+
+    .accordion-content {
+      padding: 1rem;
+      display: none;
+    }
+
+    .accordion-content.show {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .accordion-content a {
+      color: #1e90ff;
+    }
+
+    .accordion-content a:hover {
+      color: #63b3ed;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #contact a {
+      color: #1e90ff;
+    }
+
+    #contact a:hover {
       text-decoration: underline;
+      color: #63b3ed;
+    }
+
+    footer {
+      font-size: 0.9rem;
+      background-color: #1e1e1e;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1 style="color: #f0f6fc;">Rahul Sihara</h1>
+    <h1>Rahul Sihara</h1>
     <p>💻 Software Engineer | 9+ Years of Industry Experience | Backend • Python/Node.js • C#/.NET • Cloud Systems</p>
     <nav>
       <a href="#about">About</a>
@@ -93,47 +173,160 @@
 
   <div class="container">
     <section class="intro" id="about">
-      <img src="Rahul.jpg" alt="Rahul Sihara" />
+      <img src="Rahul.png" alt="Rahul Sihara" />
       <div>
         <h2>About Me</h2>
-        <p>Passionate software engineer with 9+ years of experience crafting robust web applications & backend systems. Utilized C#, Python to write scalable, secure code with a knack for problem solving. Skilled at writing clear, concise code that's easy to maintain & troubleshoot. Always learning and driven to solve meaningful challenges in tech.</p>
+        <p>I'm a recent Computer Science graduate from Arizona State University with 9 years of proven experience in software development, backend systems, and IT operations.</p>
+        <p>My work at Bharat Petroleum Corporation Limited (BPCL) involved leading the development of enterprise applications, managing large-scale SQL backends, and delivering critical software solutions in high-stakes environments.</p>
+        <p>Now, I’m actively seeking full-time Software Engineering roles where I can apply my expertise in scalable system design, microservices, and cloud infrastructure.</p>
       </div>
     </section>
 
     <section id="projects">
       <h2>Projects</h2>
-      <div class="projects">
-        <div class="project">
-          <h3>Face Recognition Web Application on AWS (IaaS)</h3>
-          <p>Developed a scalable face recognition application using AWS EC2, S3, SQS, and SimpleDB. Featured a Python web server, ML-based classification, and autoscaling logic for efficient resource usage.</p>
-          <p><strong>Tech:</strong> EC2, S3, SQS, SimpleDB, Auto-scaling, Python, PyTorch</p>
+      <div class="projects-group">
+
+        <!-- Projects inserted here -->
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>SmartFace: An Auto-Scaling Cloud System for Real-Time Face Recognition</span> 
+            <small style="color: gray;"></small>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>Engineered a robust and scalable multi-tier face recognition application leveraging AWS EC2, S3, SQS, and SimpleDB.</li>
+              <li>Developed a Python-based web server to receive image or video frame uploads, store them in S3, and enqueue processing tasks via SQS.</li>
+              <li>Implemented worker processes on both Lambda and dynamically scaled EC2 instances to detect faces and classify them using ML models.</li>
+              <li>Posted classification results to an SQS response queue, enabling real-time result retrieval by the client.</li>
+              <li>Built a custom auto-scaling controller to dynamically manage EC2 app-tier instances based on request queue load, ensuring cost-efficient resource usage.</li>
+            </ul>
+            <p><strong>Tech:</strong> AWS EC2, Lambda, S3, SQS, SimpleDB, Python, Boto3, PyTorch, Flask</p>
+            <p><a href="" target="_blank">View on GitHub</a></p>
+          </div>
         </div>
 
-        <div class="project">
-          <h3>Serverless Face Recognition Pipeline on AWS ECR & Lambda</h3>
-          <p>Created a serverless face recognition pipeline using AWS Lambda, ECR, and SQS. Dockerized ML functions with MTCNN and FaceNet for efficient video frame processing.</p>
-          <p><strong>Tech:</strong> Lambda, ECR, SQS, Docker, Python, MTCNN, FaceNet</p>
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>GreengrassVision: Hybrid Edge-Cloud Pipeline for Intelligent Video Analytics</span>
+            <small style="color: gray;"></small>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>Designed a real-time face and object recognition pipeline using AWS IoT Greengrass and Lambda.</li>
+              <li>Performed face detection on edge devices (Greengrass Core) and pushed cropped results to AWS SQS.</li>
+              <li>Used serverless Lambda functions to classify faces with FaceNet, returning results via SQS to the client.</li>
+              <li>Reduced latency and cloud usage by processing data at the edge, only forwarding relevant frames to the cloud.</li>
+            </ul>
+            <p><strong>Tech:</strong> AWS IoT Greengrass Core (v2), MQTT, AWS Lambda, SQS, EC2 (edge emulator), MTCNN, FaceNet, PyTorch, Boto3, Python</p>
+            <p><a href="" target="_blank">View on GitHub</a></p>
+          </div>
         </div>
 
-        <div class="project">
-          <h3>Preference-Diffusion</h3>
-          <p>Optimizing diffusion models with minimal human feedback using DPO.</p>
-          <p><strong>Tech:</strong> Stable Diffusion, DPO, Gradio</p>
-          <p><a href="https://github.com/RahulSihara/Preference-Diffusion" target="_blank">View on GitHub</a></p>
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>Preference Diffusion: Optimizing Diffusion Models with Minimal Human Feedback</span>
+            <small style="color: gray;"></small>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>Developed an enhanced diffusion-based image generation framework using Stable Diffusion and Direct Preference Optimization (DPO).</li>
+              <li>Addressed the lack of user control in image outputs by integrating a real-time human feedback loop based on image preference selection.</li>
+              <li>Applied Gaussian Mixture Modeling (GMM) to cluster and narrow the image search space before optimization, improving convergence and alignment.</li>
+              <li>Utilized preference-guided fine-tuning to better align prompts with user expectations, enhancing the relevance and diversity of generated images.</li>
+              <li>Designed the system to function with minimal manual input, optimizing usability and output personalization.</li>
+            </ul>
+            <p><strong>Tech:</strong> Stable Diffusion, Direct Preference Optimization (DPO), Gaussian Mixture Modeling (GMM), Gradio</p>
+            <p><a href="https://github.com/RahulSihara/Preference-Diffusion" target="_blank">View on GitHub</a></p>
+          </div>
         </div>
 
-        <div class="project">
-          <h3>Stock Market Decision-making using RL and Kafka</h3>
-          <p>Implemented DQN with Kafka and GPT-4, boosting decision accuracy by 10% and profit margins by 150%.</p>
-          <p><strong>Tech:</strong> LLM, RL, Kafka, GPT-4</p>
-          <p><a href="https://github.com/RahulSihara/RL-stock-trading-" target="_blank">View on GitHub</a></p>
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>RL-Stock-Trading: Deep Reinforcement Learning for Financial Market Decision Making</span>
+            <small style="color: gray;"></small>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>Designed a robust data mining pipeline for stock trading using deep reinforcement learning (DRL) techniques.</li>
+              <li>Implemented and compared multiple DRL algorithms including Deep Q-Network (DQN), Advantage Actor-Critic (A2C), and Proximal Policy Optimization (PPO).</li>
+              <li>Integrated sentiment analysis from financial news to enrich the input state space and inform trading strategies.</li>
+              <li>Incorporated diverse reward functions to simulate realistic market conditions and refine agent behavior.</li>
+              <li>Currently exploring novel approaches to merge natural language processing (NLP) with numerical financial data for enhanced prediction performance.</li>
+            </ul>
+            <p><strong>Tech:</strong>Deep Q-Network (DQN), A2C, PPO, Yahoo Finance API, Pandas, NumPy, NLTK / spaCy / FinBERT for sentiment analysis</p>
+            <p><a href="https://github.com/RahulSihara/RL-stock-trading-" target="_blank">View on GitHub</a></p>
+          </div>
         </div>
 
-        <div class="project">
-          <h3>FitForecast</h3>
-          <p>Health-tracking app built with Kotlin and Firebase, improved user fitness goal adherence by 25%.</p>
-          <p><strong>Tech:</strong> Kotlin, Firebase</p>
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>Digital LogBook: Intelligent Logging & Alert System for Refinery Operations</span>
+            <small style="color: gray;"></small>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>Engineered a scalable and fault-tolerant digital logbook application using .NET to modernize manual refinery logging processes.</li>
+              <li>Reduced data verification time by over <strong>90%</strong> by automating log capture and validation across 125,000+ operational parameters.</li>
+              <li>Integrated with multiple Manufacturing Execution Systems (MES) and web-based services to enable real-time alerting and decision support.</li>
+              <li>Designed a resilient data pipeline capable of handling high-throughput operational logs and exceptions with minimal downtime.</li>
+              <li>Collaborated across cross-functional teams to streamline plant-floor operations and ensure system reliability under industrial workloads.</li>
+            </ul>
+            <p><strong>Tech:</strong> C#, .NET Framework, SQL Server, JavaScript, GIT (Version Control)</p>
+            <p><a href="" target="_blank"></a></p>
+          </div>
         </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>Payroll Management System: Nationwide Payroll Modernization with Intelligent Event Integration</span>
+            <small style="color: gray;"></small>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>Led a nationwide transformation of the payroll system, delivering a <strong>30% improvement in processing speed</strong> and a <strong>20% boost in accuracy</strong>.</li>
+              <li>Developed a modern, user-friendly frontend using React and a robust backend with C# and SQL to manage complex payroll workflows.</li>
+              <li>Integrated advanced features such as dynamic attendance tracking, shift scheduling, and compliance-aware payroll processing.</li>
+              <li>Enabled seamless interoperability with third-party HR, time-tracking, and benefits platforms to streamline administrative operations.</li>
+            </ul>
+            <p><strong>Tech:</strong> React, C# (.NET), Event-driven Architecture, SQL Server, Git (Version Control)</p>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>E-Permit Dashboard: Real-Time Refinery Job Monitoring & Safety Intelligence Platform</span>
+            <small style="color: gray;"></small>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>Integrated a full-stack E-Permit system using a scalable microservices architecture to enable 24/7 tracking of all refinery operations.</li>
+              <li>Reduced safety hazards by <strong>90%</strong> through automated safety checks, user access validation, and real-time job lifecycle monitoring.</li>
+              <li>Developed and exposed both RESTful and GraphQL APIs for seamless communication across multiple operational and safety systems.</li>
+              <li>Designed an interactive digital hotspot map to visualize all active work sites and on-site personnel, supporting real-time emergency response planning for fire and safety teams.</li>
+              <li>Enabled dynamic user monitoring, ensuring compliance, accountability, and streamlined evacuation protocols in critical situations.</li>
+              <li>Positioned the E-Permit Dashboard as a core refinery tool for safety governance, operational visibility, and permit-driven job tracking.</li>
+            </ul>
+            <p><strong>Tech:</strong> Microservices Architecture, C#, .NET Core, RESTful APIs, GraphQL, Interactive Dashboards, SQL Server</p>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>VMware Infrastructure Migration: Virtualization of Mission-Critical Systems</span>
+            <small style="color: gray;"></small>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>Led a team of 5 engineers to successfully migrate over <strong>100 mission-critical physical servers</strong> to a virtualized environment using VMware vSphere.</li>
+              <li>Achieved <strong>99.99% uptime</strong> post-migration, significantly improving system reliability and disaster recovery capabilities.</li>
+              <li>Reduced energy and HVAC costs by <strong>60%</strong> through efficient resource consolidation and infrastructure footprint optimization.</li>
+              <li>Implemented high-availability clusters and automated failover mechanisms to ensure business continuity for critical services.</li>
+              <li>Oversaw performance benchmarking, risk mitigation planning, and rollback procedures during phased cutovers.</li>
+            </ul>
+            <p><strong>Tech:</strong> VMware vSphere / ESXi, vCenter Server, Windows & Linux Server Environments, Storage Area Network (SAN), PowerCLI, vMotion, HA/DRS</p>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -148,5 +341,14 @@
   <footer>
     <p>&copy; 2025 Rahul Sihara</p>
   </footer>
+
+  <script>
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        content.classList.toggle('show');
+      });
+    });
+  </script>
 </body>
 </html>
